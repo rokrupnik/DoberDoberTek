@@ -31,3 +31,38 @@ node_modules
 
 # Optional REPL history
 .node_repl_history
+
+
+# ANDROID / ECLIPSE
+
+# built application files
+*.apk
+*.ap_
+
+# files for the dex VM
+*.dex
+
+# Java class files
+*.class
+
+# generated files - android project subfolder
+Android/bin/
+Android/gen/
+/platforms
+/plugins
+/www/
+
+# generated files
+bin/
+gen/
+.gradle/
+
+# Cordova
+CordovaLib/
+
+# Eclipse files
+.project
+.settings/
+
+# temp files
+*~
