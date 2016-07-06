@@ -139,5 +139,26 @@ h1 {
 /* CUSTOM */
 .container {
     width: 90%;
-    margin-top: 2em;
+    height: 100%;
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+.input-container {
+    margin-top: 30%;
+}
+.input-group {
+    margin-bottom: 2em;
+}
+
+.btn {
+    margin-bottom: 2em;
+}
+
+h1 {
+    margin-bottom: 1em;
+}
+
+input {
+    margin-bottom: 1em;
 }

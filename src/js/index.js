@@ -4,6 +4,7 @@ var _ = libs._;
 var m = libs.m;
 
 var ingredientsItems = require('./ingredients.js');
+var dishesItems = require('./dishes.js');
 
 // Main object
 var app = 
@@ -21,6 +22,7 @@ var app =
         m.route(document.body, "/", {
             "/": app.input,
             "/zivila": app.ingredients,
+            "/jedi": app.dishes,
         });
     },
     
@@ -31,9 +33,9 @@ var app =
     },
 
     hungerLevel: m.prop(''),
-    vv: m.prop(''),
-    iv: m.prop(''),
-    pp: m.prop(''),
+    vv: m.prop(0),
+    iv: m.prop(0),
+    pp: m.prop(0),
 
     hungerFactors: {
         malo: {
@@ -57,10 +59,43 @@ var app =
     input: {
         // View model
         vm: {
-            init: function() {
+            init: function () {
             },
-            changeRoute: function (route) {
-                m.route(route);
+
+            enableLinkButtons: function (element, isInitialized) {
+                if (app.hungerLevel().length > 0) {
+                    // Set active class on pressed button
+                    $('button.btn').removeClass('active');
+                    switch (app.hungerLevel()) {
+                        case 'malo': {
+                            $('button.btn-success').addClass('active');
+                            break;
+                        }
+                        case 'srednje': {
+                            $('button.btn-warning').addClass('active');
+                            break;
+                        }
+                        case 'zelo': {
+                            $('button.btn-danger').addClass('active');
+                            break;
+                        }
+                    }
+
+                    // Enable link buttons
+                    if ($('button.link').prop('disabled')) {
+                        $('button.link').prop('disabled', false);
+                    }
+                }
+
+            },
+
+            selectText: function (e) {
+                var inputElement = this;
+                setTimeout((function (id) {
+                    return function () {
+                        $('#' + id).select();
+                    };
+                })(this.id), 100);
             }
         },
 
@@ -69,31 +104,31 @@ var app =
             app.input.vm.init();
         },
 
-        view: function() {
-            return m("div.row", [
-                m("div.form-group", [
-                    m("label.col-xs-12.text-center", "Kako lačni boste?"),
-                    m("button.btn.btn-primary.col-xs-4", {onclick: m.withAttr("value", app.hungerLevel), value: "MALO"}, "Mal mi krul"),
-                    m("button.btn.btn-primary.col-xs-4", {onclick: m.withAttr("value", app.hungerLevel), value: "SREDNJE"}, "Nič posebnega"),
-                    m("button.btn.btn-primary.col-xs-4", {onclick: m.withAttr("value", app.hungerLevel), value: "ZELO"}, "Za vola pojest!")
+        view: function () {
+            return m("div.input-container.row", [
+                m("div.input-group.col-xs-12", [
+                    m("h1.col-xs-12.text-center", "Kako lačni ste?"),
+                    m("button.btn.btn-success.col-xs-4", {onclick: m.withAttr("value", app.hungerLevel), value: "malo", config: app.input.vm.enableLinkButtons}, "Skoraj siti"),
+                    m("button.btn.btn-warning.col-xs-4", {onclick: m.withAttr("value", app.hungerLevel), value: "srednje", config: app.input.vm.enableLinkButtons}, "Nič posebnega"),
+                    m("button.btn.btn-danger.col-xs-4", {onclick: m.withAttr("value", app.hungerLevel), value: "zelo", config: app.input.vm.enableLinkButtons}, "Za vola pojest!")
                 ]),
-                m("div.form-group", [
-                    m("label.col-xs-12.text-center", "Koliko vas je?"),
-                    m("span.text-center.col-xs-4", "VV/BB 11-"),
-                    m("span.text-center.col-xs-4", "IV 11-15"),
-                    m("span.text-center.col-xs-4", "PP/SKVO 16+"),
-                    m("input.col-xs-4", {type: "number", onchange: m.withAttr("value", app.vv)}),
-                    m("input.col-xs-4", {type: "number", onchange: m.withAttr("value", app.iv)}),
-                    m("input.col-xs-4", {type: "number", onchange: m.withAttr("value", app.pp)})
+                m("div.input-group.col-xs-12", [
+                    m("h1.col-xs-12.text-center", "Koliko vas je?"),
+                    m("strong.input-label.text-center.col-xs-4", "VV/BB 11-"),
+                    m("strong.input-label.text-center.col-xs-4", "IV 11-15"),
+                    m("strong.input-label.text-center.col-xs-4", "PP/SKVO 16+"),
+                    m("input.col-xs-4#vv", {type: "number", onchange: m.withAttr("value", app.vv), onclick: app.input.vm.selectText, value: app.vv()}),
+                    m("input.col-xs-4#iv", {type: "number", onchange: m.withAttr("value", app.iv), onclick: app.input.vm.selectText, value: app.iv()}),
+                    m("input.col-xs-4#pp", {type: "number", onchange: m.withAttr("value", app.pp), onclick: app.input.vm.selectText, value: app.pp()})
                 ]),
-                m("div.form-group", [
-                    m("button.btn.btn-primary.col-xs-4", {onclick: m.withAttr("value", app.input.vm.changeRoute), value: "/zivila"}, "ŽIVILA"),
-                    m("button.btn.btn-primary.col-xs-4 col-xs-offset-4", {onclick: m.withAttr("value", app.input.vm.changeRoute), value: "/jedi"}, "JEDI")
+                m("div.input-group.col-xs-12", [
+                    m("button.btn.btn-primary.btn-lg.link.col-xs-4 col-xs-offset-1", {onclick: m.withAttr("value", app.utils.changeRoute), value: "/zivila", disabled: true}, "ŽIVILA"),
+                    m("button.btn.btn-primary.btn-lg.link.col-xs-4 col-xs-offset-2", {onclick: m.withAttr("value", app.utils.changeRoute), value: "/jedi", disabled: true}, "JEDI")
                 ]),
-                m("div.col-xs-3.text-center", app.hungerLevel()), 
-                m("div.col-xs-3.text-center", app.vv()), 
-                m("div.col-xs-3.text-center", app.iv()), 
-                m("div.col-xs-3.text-center", app.pp()),
+                // m("div.col-xs-3.text-center", app.hungerLevel()), 
+                // m("div.col-xs-3.text-center", app.vv()), 
+                // m("div.col-xs-3.text-center", app.iv()), 
+                // m("div.col-xs-3.text-center", app.pp()),
             ]);
         },
     },
@@ -103,15 +138,6 @@ var app =
         // View model
         vm: {
             init: function() {
-            },
-            calculateQuantity: function (ingredient) {
-                var hL = app.hungerLevel().toLowerCase(),
-                    vv = app.vv() * 1.0;
-                    iv = app.iv() * 1.0;
-                    pp = app.pp() * 1.0,
-                    f = ingredient.factor;
-
-                return app.hungerFactors[hL].vv * vv * f + app.hungerFactors[hL].iv * iv * f + app.hungerFactors[hL].pp * pp * f;
             }
         },
 
@@ -122,22 +148,66 @@ var app =
 
         view: function() {
             return m("div.row", [
-                m("div.col-xs-12", [
-                    m("div.col-xs-3.text-center", app.hungerLevel()),
-                    m("div.col-xs-3.text-center", app.vv()), 
-                    m("div.col-xs-3.text-center", app.iv()), 
-                    m("div.col-xs-3.text-center", app.pp()),
-                ]),
-                m("div.col-xs-12", ingredientsItems.map(function (ingredient) {
-                    return [
-                        m("div.col-xs-6.text-center", ingredient.title),
-                        m("div.col-xs-3.text-center", app.ingredients.vm.calculateQuantity(ingredient)),
+                // m("button.btn.btn-primary.col-xs-4 col-xs-offset-4", {onclick: m.withAttr("value", app.utils.changeRoute), value: "/"}, "NAZAJ"),
+                m("div.list-container", ingredientsItems.map(function (ingredient) {
+                    return m("div.list-item.thumbnail.col-xs-12", [
+                        m("div.col-xs-6", ingredient.title),
+                        m("div.col-xs-3", app.utils.calculateQuantity(ingredient)),
                         m("div.col-xs-3.text-center", ingredient.unit),
-                    ];
+                    ]);
                 })),
+                // m("button.btn.btn-primary.col-xs-4 col-xs-offset-4", {onclick: m.withAttr("value", app.utils.changeRoute), value: "/"}, "NAZAJ")
             ]);
         },
     },
+
+    // dishes component
+    dishes: {
+        // View model
+        vm: {
+            init: function() {
+            }
+        },
+
+        // controller
+        controller: function () {
+            app.dishes.vm.init();
+        },
+
+        view: function() {
+            return m("div.row", [
+                // m("button.btn.btn-primary.col-xs-4 col-xs-offset-4", {onclick: m.withAttr("value", app.utils.changeRoute), value: "/"}, "NAZAJ"),
+                m("div.list-container", _.values(_.groupBy(dishesItems, 'dish')).map(function (dishIngredients) {
+                    return m("div.list-item.thumbnail.col-xs-12", 
+                        [m("strong.col-xs-12", dishIngredients[0].dish),]
+                        .concat(dishIngredients.map(function (ingredient) {
+                            return m("div.col-xs-12", [
+                                m("div.col-xs-6", ingredient.title),
+                                m("div.col-xs-3", app.utils.calculateQuantity(ingredient)),
+                                m("div.col-xs-3.text-center", ingredient.unit),
+                            ]);
+                        })));
+                })),
+                // m("button.btn.btn-primary.col-xs-4 col-xs-offset-4", {onclick: m.withAttr("value", app.utils.changeRoute), value: "/"}, "NAZAJ")
+            ]);
+        },
+    },
+
+    utils: {
+        changeRoute: function (route) {
+            m.route(route);
+        },
+        calculateQuantity: function (ingredient) {
+            var hL = app.hungerLevel().toLowerCase(),
+                vv = app.vv();
+                iv = app.iv();
+                pp = app.pp(),
+                f = ingredient.factor,
+                quantity = app.hungerFactors[hL].vv * vv * f + app.hungerFactors[hL].iv * iv * f + app.hungerFactors[hL].pp * pp * f;
+
+                return Math.round(quantity * 100) / 100;
+        }
+    }
 };
 
 // "main()"
