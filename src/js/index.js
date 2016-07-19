@@ -174,7 +174,18 @@ var app =
     dishes: {
         // View model
         vm: {
-            init: function() {
+            init: function () {
+            },
+
+            filter: function () {
+                var searchValue = $("#search-dishes").val().toLowerCase();
+                console.log(searchValue, dishIngredientsItems);
+                dishIngredientsItems = dishIngredientsItems.map(function (ingredient) {
+                    ingredient.visible = _.includes(ingredient.dish.toLowerCase(), searchValue) || _.includes(ingredient.title.toLowerCase(), searchValue);
+                    return ingredient;
+                });
+                console.log(dishIngredientsItems);
+                m.redraw();
             }
         },
 
@@ -186,17 +197,24 @@ var app =
         view: function() {
             return m("div.row", [
                 // m("button.btn.btn-primary.col-xs-4 col-xs-offset-4", {onclick: m.withAttr("value", app.utils.changeRoute), value: "/"}, "NAZAJ"),
-                m("div.list-container", _.sortBy(_.values(_.groupBy(dishIngredientsItems, 'dish')), '[0].dish').map(function (dishIngredients) {
-                    return m("div.list-item.thumbnail.col-xs-12", 
-                        [m("strong.col-xs-12", dishIngredients[0].dish),]
-                        .concat(dishIngredients.map(function (ingredient) {
-                            return m("div.col-xs-12", [
-                                m("hr.dish-ingredient"),
-                                m("div.col-xs-6", ingredient.title),
-                                m("div.col-xs-3", app.utils.calculateQuantity(ingredient)),
-                                m("div.col-xs-3.text-center", ingredient.unit),
-                            ]);
-                        })));
+                m("div.search-container", [
+                    m("strong.col-xs-12.text-center", "ISKANJE"),
+                    m("input#search-dishes.col-xs-12", {type: "text", onkeyup: app.dishes.vm.filter})
+                ]),
+                m("div.list-container", _.filter(_.sortBy(_.values(_.groupBy(dishIngredientsItems, 'dish')), '[0].dish'), function (dishIngredients) {
+                        // Display dish if at least one ingredient is visible
+                        return _.some(dishIngredients, 'visible');
+                    }).map(function (dishIngredients) {
+                        return m("div.list-item.thumbnail.col-xs-12", 
+                            [m("strong.col-xs-12", dishIngredients[0].dish),]
+                            .concat(dishIngredients.map(function (ingredient) {
+                                return m("div.col-xs-12", [
+                                    m("hr.dish-ingredient"),
+                                    m("div.col-xs-6", ingredient.title),
+                                    m("div.col-xs-3", app.utils.calculateQuantity(ingredient)),
+                                    m("div.col-xs-3.text-center", ingredient.unit),
+                                ]);
+                            })));
                 })),
                 // m("button.btn.btn-primary.col-xs-4 col-xs-offset-4", {onclick: m.withAttr("value", app.utils.changeRoute), value: "/"}, "NAZAJ")
             ]);
