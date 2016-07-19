@@ -191,6 +191,7 @@ var app =
                         [m("strong.col-xs-12", dishIngredients[0].dish),]
                         .concat(dishIngredients.map(function (ingredient) {
                             return m("div.col-xs-12", [
+                                m("hr.dish-ingredient"),
                                 m("div.col-xs-6", ingredient.title),
                                 m("div.col-xs-3", app.utils.calculateQuantity(ingredient)),
                                 m("div.col-xs-3.text-center", ingredient.unit),
