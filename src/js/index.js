@@ -4,7 +4,7 @@ var _ = libs._;
 var m = libs.m;
 
 var ingredientsItems = require('./ingredients.js');
-var dishesItems = require('./dishes.js');
+var dishIngredientsItems = require('./dishIngredients.js');
 
 // Main object
 var app = 
@@ -121,9 +121,16 @@ var app =
                     m("input.col-xs-4#iv", {type: "number", onchange: m.withAttr("value", app.iv), onclick: app.input.vm.selectText, value: app.iv()}),
                     m("input.col-xs-4#pp", {type: "number", onchange: m.withAttr("value", app.pp), onclick: app.input.vm.selectText, value: app.pp()})
                 ]),
-                m("div.input-group.col-xs-12", [
+                m("div.col-xs-12", [
                     m("button.btn.btn-primary.btn-lg.link.col-xs-4 col-xs-offset-1", {onclick: m.withAttr("value", app.utils.changeRoute), value: "/zivila", disabled: true}, "ŽIVILA"),
                     m("button.btn.btn-primary.btn-lg.link.col-xs-4 col-xs-offset-2", {onclick: m.withAttr("value", app.utils.changeRoute), value: "/jedi", disabled: true}, "JEDI")
+                ]),
+                m("div.col-xs-12", [
+                    m("a.btn.btn-info.col-xs-6 col-xs-offset-3", {href: "https://docs.google.com/forms/d/1v5eekn6bUch71Ct5GZ_1H-Up9p1HssnqPdoDeAGlfCc/viewform?c=0&w=1", target: "_blank"}, [
+                        m("span", "Oddaj predlog"),
+                        m("br"),
+                        m("span", "za izboljšavo"),
+                    ]),
                 ]),
                 // m("div.col-xs-3.text-center", app.hungerLevel()), 
                 // m("div.col-xs-3.text-center", app.vv()), 
@@ -177,7 +184,7 @@ var app =
         view: function() {
             return m("div.row", [
                 // m("button.btn.btn-primary.col-xs-4 col-xs-offset-4", {onclick: m.withAttr("value", app.utils.changeRoute), value: "/"}, "NAZAJ"),
-                m("div.list-container", _.values(_.groupBy(dishesItems, 'dish')).map(function (dishIngredients) {
+                m("div.list-container", _.values(_.groupBy(dishIngredientsItems, 'dish')).map(function (dishIngredients) {
                     return m("div.list-item.thumbnail.col-xs-12", 
                         [m("strong.col-xs-12", dishIngredients[0].dish),]
                         .concat(dishIngredients.map(function (ingredient) {
@@ -202,10 +209,20 @@ var app =
                 vv = app.vv();
                 iv = app.iv();
                 pp = app.pp(),
-                f = ingredient.factor,
-                quantity = app.hungerFactors[hL].vv * vv * f + app.hungerFactors[hL].iv * iv * f + app.hungerFactors[hL].pp * pp * f;
+                quantity = ingredient.vv[hL] * vv + ingredient.iv[hL] * iv + ingredient.pp[hL] * pp;
 
-                return Math.round(quantity * 100) / 100;
+                // Round to 2 decimals
+                quantity = Math.round(quantity * 100) / 100;
+
+                // Round up if unit is undivisible
+                if (_.includes(["kos", "strok", "žlička"], ingredient.unit)) {
+                    quantity = Math.ceil(quantity);
+                }
+
+                // Return a number only if its greater than zero
+                // This is done because we have some ingredients that are voluntary like spices
+                // and they are in very small quantities
+                return quantity > 0 ? quantity : "";
         }
     }
 };
