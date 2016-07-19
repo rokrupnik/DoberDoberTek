@@ -147,6 +147,15 @@ var app =
         // View model
         vm: {
             init: function() {
+            },
+
+            filter: function () {
+                var searchValue = $("#search-ingredients").val().toLowerCase();
+                ingredientsItems = ingredientsItems.map(function (ingredient) {
+                    ingredient.visible = _.includes(ingredient.title.toLowerCase(), searchValue);
+                    return ingredient;
+                });
+                m.redraw();
             }
         },
 
@@ -158,7 +167,11 @@ var app =
         view: function() {
             return m("div.row", [
                 // m("button.btn.btn-primary.col-xs-4 col-xs-offset-4", {onclick: m.withAttr("value", app.utils.changeRoute), value: "/"}, "NAZAJ"),
-                m("div.list-container", ingredientsItems.map(function (ingredient) {
+                m("div.search-container", [
+                    m("strong.col-xs-12.text-center", "ISKANJE"),
+                    m("input#search-ingredients.col-xs-12", {type: "text", onkeyup: app.ingredients.vm.filter})
+                ]),
+                m("div.list-container", _.filter(ingredientsItems, 'visible').map(function (ingredient) {
                     return m("div.list-item.thumbnail.col-xs-12", [
                         m("div.col-xs-6", ingredient.title),
                         m("div.col-xs-3", app.utils.calculateQuantity(ingredient)),
@@ -179,12 +192,10 @@ var app =
 
             filter: function () {
                 var searchValue = $("#search-dishes").val().toLowerCase();
-                console.log(searchValue, dishIngredientsItems);
                 dishIngredientsItems = dishIngredientsItems.map(function (ingredient) {
                     ingredient.visible = _.includes(ingredient.dish.toLowerCase(), searchValue) || _.includes(ingredient.title.toLowerCase(), searchValue);
                     return ingredient;
                 });
-                console.log(dishIngredientsItems);
                 m.redraw();
             }
         },
