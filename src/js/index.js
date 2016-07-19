@@ -186,7 +186,7 @@ var app =
         view: function() {
             return m("div.row", [
                 // m("button.btn.btn-primary.col-xs-4 col-xs-offset-4", {onclick: m.withAttr("value", app.utils.changeRoute), value: "/"}, "NAZAJ"),
-                m("div.list-container", _.values(_.groupBy(dishIngredientsItems, 'dish')).map(function (dishIngredients) {
+                m("div.list-container", _.sortBy(_.values(_.groupBy(dishIngredientsItems, 'dish')), '[0].dish').map(function (dishIngredients) {
                     return m("div.list-item.thumbnail.col-xs-12", 
                         [m("strong.col-xs-12", dishIngredients[0].dish),]
                         .concat(dishIngredients.map(function (ingredient) {
