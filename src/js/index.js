@@ -107,10 +107,12 @@ var app =
         view: function () {
             return m("div.input-container.row", [
                 m("div.input-group.col-xs-12", [
-                    m("h1.col-xs-12.text-center", "Kako lačni ste?"),
-                    m("button.btn.btn-success.col-xs-4", {onclick: m.withAttr("value", app.hungerLevel), value: "malo", config: app.input.vm.enableLinkButtons}, "Skoraj siti"),
-                    m("button.btn.btn-warning.col-xs-4", {onclick: m.withAttr("value", app.hungerLevel), value: "srednje", config: app.input.vm.enableLinkButtons}, "Nič posebnega"),
-                    m("button.btn.btn-danger.col-xs-4", {onclick: m.withAttr("value", app.hungerLevel), value: "zelo", config: app.input.vm.enableLinkButtons}, "Za vola pojest!")
+                    m("h1.text-center.col-xs-12", "Kako lačni ste?"),
+                    m("div.btn-group.col-xs-12", [
+                        m("button.btn.btn-success.col-xs-4", {onclick: m.withAttr("value", app.hungerLevel), value: "malo", config: app.input.vm.enableLinkButtons}, "Skoraj siti"),
+                        m("button.btn.btn-warning.col-xs-4", {onclick: m.withAttr("value", app.hungerLevel), value: "srednje", config: app.input.vm.enableLinkButtons}, "Nič posebnega"),
+                        m("button.btn.btn-danger.col-xs-4", {onclick: m.withAttr("value", app.hungerLevel), value: "zelo", config: app.input.vm.enableLinkButtons}, "Za vola pojest!")
+                    ]),
                 ]),
                 m("div.input-group.col-xs-12", [
                     m("h1.col-xs-12.text-center", "Koliko vas je?"),
