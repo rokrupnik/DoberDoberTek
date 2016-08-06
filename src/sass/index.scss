@@ -145,14 +145,14 @@ h1 {
 }
 
 .input-container {
-    margin-top: 30%;
+    /*margin-top: 30%;*/
 }
 .input-group {
-    margin-bottom: 2em;
+    margin-bottom: 1em;
 }
 
 .btn {
-    margin-bottom: 2em;
+    margin-bottom: 1em;
 }
 
 h1 {
@@ -166,4 +166,11 @@ input {
 hr.dish-ingredient {
     margin-top: 2px;
     margin-bottom: 2px;
+}
+
+header {
+    background: url("../img/header.png") no-repeat;
+    background-size: 100%;
+    width: 100%;
+    height: calc(100vw * 0.37);
 }

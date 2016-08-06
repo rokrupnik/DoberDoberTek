@@ -19,7 +19,7 @@ var app =
         //setup routes to start w/ the `#` symbol
         m.route.mode = "hash";
 
-        m.route(document.body, "/", {
+        m.route($("#main")[0], "/", {
             "/": app.input,
             "/zivila": app.ingredients,
             "/jedi": app.dishes,
@@ -36,24 +36,6 @@ var app =
     vv: m.prop(0),
     iv: m.prop(0),
     pp: m.prop(0),
-
-    hungerFactors: {
-        malo: {
-            vv: 1.0,
-            iv: 1.05,
-            pp: 1.1,
-        },
-        srednje: {
-            vv: 1.05,
-            iv: 1.1,
-            pp: 1.15,
-        },
-        zelo: {
-            vv: 1.1,
-            iv: 1.15,
-            pp: 1.2,
-        },
-    },
 
     // input component
     input: {
