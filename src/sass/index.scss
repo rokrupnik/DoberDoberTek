@@ -20,15 +20,12 @@
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
 
-$footer-height: 50px;
-$red-color: #CD323C;
-
 html {
   //position: relative;
   height: 100%;
   
   font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
-  font-size:12px;
+  font-size:3vw;
 }
 
 body {
@@ -53,7 +50,6 @@ body {
     
     padding: 0;
     margin: 0;
-    margin-bottom: $footer-height;
     //overflow:hidden;
 }
 
@@ -73,23 +69,6 @@ body {
     }
 } */
 
-.tab {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  position: relative;
-}
-
-.footer-img {  
-  border: 1px solid;
-  border-radius: 4px;
-  border-color: $red-color;
-}
-
-.tab-active {
-  border-color: white;
-}
-
 
 h1 {
     font-size:24px;
@@ -100,47 +79,12 @@ h1 {
     text-align:center;
 }
 
-.event {
-    border-radius:4px;
-    -webkit-border-radius:4px;
-    color:#FFFFFF;
-    font-size:12px;
-    margin:0px 30px;
-    padding:2px 0px;
-}
-
-.event.listening {
-    background-color:#333333;
-    display:block;
-}
-
-.event.received {
-    background-color:#4B946A;
-    display:none;
-}
-
-@keyframes fade {
-    from { opacity: 1.0; }
-    50% { opacity: 0.4; }
-    to { opacity: 1.0; }
-}
- 
-@-webkit-keyframes fade {
-    from { opacity: 1.0; }
-    50% { opacity: 0.4; }
-    to { opacity: 1.0; }
-}
- 
-.blink {
-    animation:fade 3000ms infinite;
-    -webkit-animation:fade 3000ms infinite;
-}
-
 /* CUSTOM */
 .container {
     /*width: 90%;*/
     min-height: calc(100% - (100vw * 0.61));
-    padding-top: 1.5em;
+    padding-top: 5vw;
+    padding-bottom: 3vw;
 }
 
 header {
@@ -161,29 +105,31 @@ footer {
     padding: 0 !important;
 }
 
+$big-font-size: 4vw;
+$small-font-size: 3vw;
+
 /* HOME PAGE */
 .input-container {
     /*margin-top: 30%;*/
 }
 .input-group {
-    margin-bottom: 1em;
+    margin-bottom: 5vw;
 }
 
 .btn {
-    margin-bottom: 1em;
+    margin-bottom: 5vw;
 }
 
 h1 {
-    margin-bottom: 0.5em;
-    font-size: 1em;
+    font-size: $big-font-size;
 
     &#how-much {
-        margin-top: 1em;
+        margin-top: 3vw;
     }
 }
 
 input {
-    margin-bottom: 1em;
+    margin-bottom: 5vw;
 }
 
 input[type=radio   ]:not(old){
@@ -198,7 +144,6 @@ input[type=radio   ]:not(old) + label{
     padding-left: 0px !important;
 
     padding-top: calc(33vw * 0.69);
-    height: calc((33vw * 0.69) + 1em);
     width: 100%;
     
     &.malo {
@@ -216,7 +161,7 @@ input[type=radio   ]:not(old) + label{
 
     small {
         font-weight: normal;
-        font-size: 0.7em;
+        font-size: $small-font-size;
     }
 }
 
@@ -232,12 +177,13 @@ input[type=number] {
 }
 
 .input-label {
-    font-size: 0.7em;
+    font-size: $small-font-size;
 }
 
 span.link {
     padding-top: 25vw;
-    height: calc(25vw + 1em);
+    height: calc(25vw + 5vw);
+    font-size: $small-font-size;
 
     &#ingredients {
         background: url("../img/ingredients.png") no-repeat center 0;
