@@ -61,9 +61,9 @@ var app =
 
         view: function () {
             return m("div.input-container.row", [
-                m("div.input-group.col-xs-12", [
+                m("div.col-xs-12", [
                     m("h1.text-center.col-xs-12", "Kako lačni ste?"),
-                    m("div.col-xs-12", [
+                    m("div.padless.col-xs-12", [
                         m("span.padless.col-xs-4", [
                             m("input#malo", {type: "radio", name: "hungerLevel", onchange: m.withAttr("value", app.hungerLevel), value: "malo"}, m("small", "Skoraj siti")),
                             m("label.malo.text-center", {for: "malo"}, m("small", "Skoraj siti")),
@@ -78,14 +78,20 @@ var app =
                         ]),
                     ]),
                 ]),
-                m("div.input-group.col-xs-12", [
-                    m("h1.col-xs-12.text-center", "Koliko vas je?"),
-                    m("input-label.text-center.col-xs-4", "VV/BB 11-"),
-                    m("input-label.text-center.col-xs-4", "IV 11-15"),
-                    m("input-label.text-center.col-xs-4", "PP/SKVO 16+"),
-                    m("input.col-xs-4#vv", {type: "number", onchange: m.withAttr("value", app.vv), onclick: app.input.vm.selectText, value: app.vv()}),
-                    m("input.col-xs-4#iv", {type: "number", onchange: m.withAttr("value", app.iv), onclick: app.input.vm.selectText, value: app.iv()}),
-                    m("input.col-xs-4#pp", {type: "number", onchange: m.withAttr("value", app.pp), onclick: app.input.vm.selectText, value: app.pp()})
+                m("div.col-xs-12", [
+                    m("h1#how-much.col-xs-12.text-center", "Koliko vas je?"),
+                    m("span.padless.col-xs-4", [
+                        m("span.input-label.text-center.col-xs-12", "VV/BB 11-"),
+                        m("input#vv.text-center", {type: "number", onchange: m.withAttr("value", app.vv), onclick: app.input.vm.selectText, value: app.vv()}),
+                    ]),
+                    m("span.padless.col-xs-4", [
+                        m("span.input-label.text-center.col-xs-12", "IV 11-15"),
+                        m("input#iv.text-center", {type: "number", onchange: m.withAttr("value", app.iv), onclick: app.input.vm.selectText, value: app.iv()}),
+                    ]),
+                    m("span.padless.col-xs-4", [
+                        m("span.input-label.text-center.col-xs-12", "PP/SKVO 16+"),
+                        m("input#pp.text-center", {type: "number", onchange: m.withAttr("value", app.pp), onclick: app.input.vm.selectText, value: app.pp()})
+                    ]),
                 ]),
                 m("div.col-xs-12", [
                     m("button.link.col-xs-4 col-xs-offset-1", {onclick: m.withAttr("value", app.utils.changeRoute), value: "/zivila"}, "ŽIVILA"),

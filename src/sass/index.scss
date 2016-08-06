@@ -140,8 +140,8 @@ h1 {
 .container {
     /*width: 90%;*/
     min-height: calc(100% - (100vw * 0.60));
-    padding-top: 2em;
-    padding-bottom: 2em;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
 }
 
 header {
@@ -152,7 +152,7 @@ header {
 }
 
 footer {
-    background: url("../img/footer.png") no-repeat;
+    background: url("../img/footer.png");
     background-size: 100%;
     width: 100%;
     height: calc(100vw * 0.24);
@@ -178,6 +178,9 @@ h1 {
     margin-bottom: 0.5em;
     font-size: 1em;
 
+    &#how-much {
+        margin-top: 1em;
+    }
 }
 
 input {
@@ -222,6 +225,15 @@ input[type=radio]:not(old):checked + label{
     small {
         font-weight: bold;
     }
+}
+
+input[type=number] {
+    width: 94%;
+    margin-left: 3%;
+}
+
+.input-label {
+    font-size: 0.7em;
 }
 
 /* LIST */
