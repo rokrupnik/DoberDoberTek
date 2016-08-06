@@ -139,7 +139,7 @@ h1 {
 /* CUSTOM */
 .container {
     width: 90%;
-    /*height: calc(100% - (100vw * 0.61));*/
+    min-height: calc(100% - (100vw * 0.61));
     padding-top: 2em;
     padding-bottom: 2em;
 }
