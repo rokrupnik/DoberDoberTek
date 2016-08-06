@@ -236,6 +236,20 @@ input[type=number] {
     font-size: 0.7em;
 }
 
+span.link {
+    padding-top: 25vw;
+    height: calc(25vw + 1em);
+
+    &#ingredients {
+        background: url("../img/ingredients.png") no-repeat center 0;
+        background-size: 80%;
+    }
+    &#dishes {
+        background: url("../img/dishes.png") no-repeat center 0;
+        background-size: 80%;
+    }
+}
+
 /* LIST */
 hr.dish-ingredient {
     margin-top: 2px;

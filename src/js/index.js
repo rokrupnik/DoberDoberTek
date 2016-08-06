@@ -94,8 +94,8 @@ var app =
                     ]),
                 ]),
                 m("div.col-xs-12", [
-                    m("button.link.col-xs-4 col-xs-offset-1", {onclick: m.withAttr("value", app.utils.changeRoute), value: "/zivila"}, "ŽIVILA"),
-                    m("button.link.col-xs-4 col-xs-offset-2", {onclick: m.withAttr("value", app.utils.changeRoute), value: "/jedi"}, "JEDI")
+                    m("span#ingredients.link.text-center.col-xs-4 col-xs-offset-1", {onclick: m.withAttr("value", app.utils.changeRoute), value: "/zivila"}, "ŽIVILA"),
+                    m("span#dishes.link.text-center.col-xs-4 col-xs-offset-2", {onclick: m.withAttr("value", app.utils.changeRoute), value: "/jedi"}, "JEDI")
                 ]),
                 /*m("div.col-xs-12", [
                     m("a.btn.btn-info.col-xs-6 col-xs-offset-3", {href: "https://docs.google.com/forms/d/1v5eekn6bUch71Ct5GZ_1H-Up9p1HssnqPdoDeAGlfCc/viewform?c=0&w=1", target: "_blank"}, [
