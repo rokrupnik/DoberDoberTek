@@ -217,25 +217,22 @@ var app =
                 m("p", "Aplikacija je bila razvita s strani skavtskih voditeljev, ki delujejo v Združenju slovenskih katoliških skavtinj in skavtov. Aplikacija je rezultat projekta 'Zdrava prehrana na skavtskih aktivnostih', ki deluje v okviru projekta 'Za zdravje mladih'."),
                 m("h2", "Člani projekta 'Zdrava prehrana na skavtskih aktivnostih':"),
                 m("ul", [
-                    m("li", "Simon Brezovnik"),
-                    m("li", "Ana Jagodic"),
-                    m("li", "Eva Lovšin"),
-                    m("li", "Sara Marinko"),
+                    m("li", m("a", {href: "mailto:brezovniks@gmail.com"}, "Simon Brezovnik")),
+                    m("li", m("a", {href: "mailto:jagodic.ana153@gmail.com"}, "Ana Jagodic")),
+                    m("li", m("a", {href: "mailto:eva.lovsin10@gmail.com"}, "Eva Lovšin")),
+                    m("li", m("a", {href: "mailto:sara.marinko@gmail.com"}, "Sara Marinko")),
                 ]),
                 m("h2", "Programer:"),
                 m("ul", [
                     m("li", m("a", {href: "http://rokrupnik.github.io/", target: "_blank"}, "Rok Rupnik")),
-                    m("li", m("a", {href: "mailto:rok7rupnik@gmail.com"}, "rok7rupnik@gmail.com")),
                 ]),
                 m("h2", "Oblikovalec:"),
                 m("ul", [
                     m("li", m("a", {href: "http://www.viki.si/", target: "_blank"}, "Viktor Höchtl")),
-                    m("li", m("a", {href: "mailto:viki.hochtl@gmail.com"}, "viki.hochtl@gmail.com")),
                 ]),
                 m("h2", "Avtor faktorjev za preračunavanje:"),
                 m("ul", [
                     m("li", m("a", {href: "http://moj.skavt.net/ttomsic/", target: "_blank"}, "Tomi Tomšič")),
-                    m("li", m("a", {href: "mailto:dvojni.t@gmail.com"}, "dvojni.t@gmail.com")),
                 ]),
                 // m("a.text-center.col-xs-12", {href: "/#/"}, "NAZAJ")
             ]);
