@@ -1,6 +1,7 @@
 # Custom
 dishIngredients.js
 ingredients.js
+*.tsv
 
 # Logs
 logs
@@ -38,6 +39,9 @@ node_modules
 
 
 # ANDROID / ECLIPSE
+
+# Keystore
+*.keystore
 
 # built application files
 *.apk
