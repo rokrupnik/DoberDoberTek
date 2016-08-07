@@ -150,7 +150,7 @@ p, li, li > a {
     font-size: $small-font-size;
 }
 
-a {
+a, span.about-link {
     font-size: $medium-font-size;
     margin-top: 1vw;
 }
@@ -221,6 +221,11 @@ span.link {
         background: url("../img/dishes.png") no-repeat center 0;
         background-size: 80%;
     }
+}
+
+span.about-link {
+    color: #337ab7;
+    text-decoration: none;
 }
 
 /* LIST */

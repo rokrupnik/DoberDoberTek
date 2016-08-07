@@ -52,6 +52,10 @@ var app =
                         $('#' + id).select();
                     };
                 })(this.id), 100);
+            },
+
+            goToCredits: function () {
+                m.route('/avtorji');
             }
         },
 
@@ -99,7 +103,7 @@ var app =
                     m("span#dishes.link.text-center.col-xs-4 col-xs-offset-2", {onclick: m.withAttr("value", app.utils.changeRoute), value: "/jedi"}, "JEDI")
                 ]),
                 m("a.text-center.col-xs-12", {href: "https://docs.google.com/forms/d/1v5eekn6bUch71Ct5GZ_1H-Up9p1HssnqPdoDeAGlfCc/viewform?c=0&w=1", target: "_blank"}, "ODDAJ PREDLOG ZA IZBOLJŠAVO"),
-                m("a.text-center.col-xs-12", {href: "#/avtorji"}, "O APLIKACIJI"),
+                m("span.about-link.text-center.col-xs-12", {onclick: app.input.vm.goToCredits}, "O APLIKACIJI"),
                 // m("div.col-xs-3.text-center", app.hungerLevel()), 
                 // m("div.col-xs-3.text-center", app.vv()), 
                 // m("div.col-xs-3.text-center", app.iv()), 
