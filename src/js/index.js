@@ -23,6 +23,7 @@ var app =
             "/": app.input,
             "/zivila": app.ingredients,
             "/jedi": app.dishes,
+            "/avtorji": app.credits,
         });
     },
     
@@ -97,13 +98,8 @@ var app =
                     m("span#ingredients.link.text-center.col-xs-4 col-xs-offset-1", {onclick: m.withAttr("value", app.utils.changeRoute), value: "/zivila"}, "ŽIVILA"),
                     m("span#dishes.link.text-center.col-xs-4 col-xs-offset-2", {onclick: m.withAttr("value", app.utils.changeRoute), value: "/jedi"}, "JEDI")
                 ]),
-                /*m("div.col-xs-12", [
-                    m("a.btn.btn-info.col-xs-6 col-xs-offset-3", {href: "https://docs.google.com/forms/d/1v5eekn6bUch71Ct5GZ_1H-Up9p1HssnqPdoDeAGlfCc/viewform?c=0&w=1", target: "_blank"}, [
-                        m("span", "Oddaj predlog"),
-                        m("br"),
-                        m("span", "za izboljšavo"),
-                    ]),
-                ]),*/
+                m("a.text-center.col-xs-12", {href: "https://docs.google.com/forms/d/1v5eekn6bUch71Ct5GZ_1H-Up9p1HssnqPdoDeAGlfCc/viewform?c=0&w=1", target: "_blank"}, "ODDAJ PREDLOG ZA IZBOLJŠAVO"),
+                m("a.text-center.col-xs-12", {href: "/#/avtorji"}, "O APLIKACIJI"),
                 // m("div.col-xs-3.text-center", app.hungerLevel()), 
                 // m("div.col-xs-3.text-center", app.vv()), 
                 // m("div.col-xs-3.text-center", app.iv()), 
@@ -198,6 +194,50 @@ var app =
                             })));
                 })),
                 // m("button.btn.btn-primary.col-xs-4 col-xs-offset-4", {onclick: m.withAttr("value", app.utils.changeRoute), value: "/"}, "NAZAJ")
+            ]);
+        },
+    },
+
+    // credits component
+    credits: {
+        // View model
+        vm: {
+            init: function () {
+            },
+        },
+
+        // controller
+        controller: function () {
+            app.credits.vm.init();
+        },
+
+        view: function() {
+            return m("div.about-container.row", [
+                m("h2", "O aplikaciji"),
+                m("p", "Aplikacija je bila razvita s strani skavtskih voditeljev, ki delujejo v Združenju slovenskih katoliških skavtinj in skavtov. Aplikacija je rezultat projekta 'Zdrava prehrana na skavtskih aktivnostih', ki deluje v okviru projekta 'Za zdravje mladih'."),
+                m("h2", "Člani projekta 'Zdrava prehrana na skavtskih aktivnostih':"),
+                m("ul", [
+                    m("li", "Simon Brezovnik"),
+                    m("li", "Ana Jagodic"),
+                    m("li", "Eva Lovšin"),
+                    m("li", "Sara Marinko"),
+                ]),
+                m("h2", "Programer:"),
+                m("ul", [
+                    m("li", m("a", {href: "http://rokrupnik.github.io/", target: "_blank"}, "Rok Rupnik")),
+                    m("li", m("a", {href: "mailto:rok7rupnik@gmail.com"}, "rok7rupnik@gmail.com")),
+                ]),
+                m("h2", "Oblikovalec:"),
+                m("ul", [
+                    m("li", m("a", {href: "http://www.viki.si/", target: "_blank"}, "Viktor Höchtl")),
+                    m("li", m("a", {href: "mailto:viki.hochtl@gmail.com"}, "viki.hochtl@gmail.com")),
+                ]),
+                m("h2", "Avtor faktorjev za preračunavanje:"),
+                m("ul", [
+                    m("li", m("a", {href: "http://moj.skavt.net/ttomsic/", target: "_blank"}, "Tomi Tomšič")),
+                    m("li", m("a", {href: "mailto:dvojni.t@gmail.com"}, "dvojni.t@gmail.com")),
+                ]),
+                // m("a.text-center.col-xs-12", {href: "/#/"}, "NAZAJ")
             ]);
         },
     },

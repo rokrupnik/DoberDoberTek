@@ -25,7 +25,6 @@ html {
   height: 100%;
   
   font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
-  font-size:3vw;
 }
 
 body {
@@ -101,11 +100,22 @@ footer {
     height: calc(100vw * 0.24);
 }
 
+.search-container, .list-container {
+    width: 90vw;
+    margin-left: 5vw;
+}
+
+.about-container {
+    width: 90vw;
+    margin-left: 0.1vw;
+}
+
 .padless {
     padding: 0 !important;
 }
 
 $big-font-size: 4vw;
+$medium-font-size: 3.5vw;
 $small-font-size: 3vw;
 
 /* HOME PAGE */
@@ -126,6 +136,23 @@ h1 {
     &#how-much {
         margin-top: 3vw;
     }
+}
+
+h2 {
+    font-size: $medium-font-size;
+    font-weight: bold;
+    
+    padding: 0px;
+    margin: 0px;
+}
+
+p, li, li > a {
+    font-size: $small-font-size;
+}
+
+a {
+    font-size: $medium-font-size;
+    margin-top: 1vw;
 }
 
 input {
@@ -199,9 +226,4 @@ span.link {
 hr.dish-ingredient {
     margin-top: 2px;
     margin-bottom: 2px;
-}
-
-.search-container, .list-container {
-    width: 90vw;
-    margin-left: 5vw;
 }
