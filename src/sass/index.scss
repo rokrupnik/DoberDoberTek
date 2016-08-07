@@ -80,24 +80,16 @@ h1 {
 
 /* CUSTOM */
 .container {
-    /*width: 90%;*/
-    min-height: calc(100% - (100vw * 0.61));
     padding-top: 5vw;
     padding-bottom: 3vw;
 }
 
-header {
-    background: url("../img/header.png") no-repeat;
-    background-size: 100%;
+header img {
     width: 100%;
-    height: calc(100vw * 0.37);
 }
 
-footer {
-    background: url("../img/footer.png");
-    background-size: 100%;
+footer img {
     width: 100%;
-    height: calc(100vw * 0.24);
 }
 
 .search-container, .list-container {
