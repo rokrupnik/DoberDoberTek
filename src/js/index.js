@@ -66,15 +66,15 @@ var app =
                     m("h1.text-center.col-xs-12", "Kako lačni ste?"),
                     m("div.padless.col-xs-12", [
                         m("span.padless.col-xs-4", [
-                            m("input#malo", {type: "radio", name: "hungerLevel", onchange: m.withAttr("value", app.hungerLevel), value: "malo"}, m("small", "Skoraj siti")),
+                            m("input#malo", {type: "radio", name: "hungerLevel", onchange: m.withAttr("value", app.hungerLevel), value: "malo", checked: app.hungerLevel() === "malo"}, m("small", "Skoraj siti")),
                             m("label.malo.text-center", {for: "malo"}, m("small", "Skoraj siti")),
                         ]),
                         m("span.padless.col-xs-4", [
-                            m("input#srednje", {type: "radio", name: "hungerLevel", onchange: m.withAttr("value", app.hungerLevel), value: "srednje", checked: true}, m("small", "Nič posebnega")),
+                            m("input#srednje", {type: "radio", name: "hungerLevel", onchange: m.withAttr("value", app.hungerLevel), value: "srednje", checked: app.hungerLevel() === "srednje"}, m("small", "Nič posebnega")),
                             m("label.srednje.text-center", {for: "srednje"}, m("small", "Nič posebnega")),
                         ]),
                         m("span.padless.col-xs-4", [
-                            m("input#zelo", {type: "radio", name: "hungerLevel", onchange: m.withAttr("value", app.hungerLevel), value: "zelo"}, m("small", "Za vola pojest!")),
+                            m("input#zelo", {type: "radio", name: "hungerLevel", onchange: m.withAttr("value", app.hungerLevel), value: "zelo", checked: app.hungerLevel() === "zelo"}, m("small", "Za vola pojest!")),
                             m("label.zelo.text-center", {for: "zelo"}, m("small", "Za vola pojest!"))
                         ]),
                     ]),
