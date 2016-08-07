@@ -171,6 +171,7 @@ input[type=radio   ]:not(old) + label{
     padding-left: 0px !important;
 
     padding-top: calc(33vw * 0.69);
+    height: calc((33vw * 0.69) + 1em);
     width: 100%;
     
     &.malo {
