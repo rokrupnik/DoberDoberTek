@@ -67,7 +67,7 @@ var app =
         view: function () {
             return m("div.input-container.row", [
                 m("div.col-xs-12", [
-                    m("h1.text-center.col-xs-12", "Kako lačni ste?"),
+                    m("h4.text-center.col-xs-12", "KAKO LAČNI STE?"),
                     m("div.padless.col-xs-12", [
                         m("span.padless.col-xs-4", [
                             m("input#malo", {type: "radio", name: "hungerLevel", onchange: m.withAttr("value", app.hungerLevel), value: "malo", checked: app.hungerLevel() === "malo"}, m("small", "Skoraj siti")),
@@ -96,17 +96,17 @@ var app =
                     ]),
                 ]),
                 m("div.col-xs-12", [
-                    m("h1#how-much.col-xs-12.text-center", "Koliko vas je?"),
+                    m("h4#how-much.text-center.col-xs-12", "KOLIKO VAS JE?"),
                     m("span.padless.col-xs-4", [
-                        m("span.input-label.text-center.col-xs-12", "VV/BB 11-"),
+                        m("small.input-label.text-center.col-xs-12", "VV/BB 11-"),
                         m("input#vv.text-center", {type: "number", onchange: m.withAttr("value", app.vv), onclick: app.input.vm.selectText, value: app.vv()}),
                     ]),
                     m("span.padless.col-xs-4", [
-                        m("span.input-label.text-center.col-xs-12", "IV 11-15"),
+                        m("small.input-label.text-center.col-xs-12", "IV 11-15"),
                         m("input#iv.text-center", {type: "number", onchange: m.withAttr("value", app.iv), onclick: app.input.vm.selectText, value: app.iv()}),
                     ]),
                     m("span.padless.col-xs-4", [
-                        m("span.input-label.text-center.col-xs-12", "PP/SKVO 16+"),
+                        m("small.input-label.text-center.col-xs-12", "PP/SKVO 16+"),
                         m("input#pp.text-center", {type: "number", onchange: m.withAttr("value", app.pp), onclick: app.input.vm.selectText, value: app.pp()})
                     ]),
                 ]),
@@ -114,15 +114,14 @@ var app =
                     m("span#ingredients.link.text-center.col-xs-4 col-xs-offset-1", {onclick: m.withAttr("value", app.utils.changeRoute), value: "/zivila"}, [
                         m("img", {src: "img/ingredients.png"}),
                         m("br"),
-                        m("span", "ŽIVILA"),
+                        m("small", "ŽIVILA"),
                     ]),
                     m("span#dishes.link.text-center.col-xs-4 col-xs-offset-2", {onclick: m.withAttr("value", app.utils.changeRoute), value: "/jedi"}, [
                         m("img", {src: "img/dishes.png"}),
                         m("br"),
-                        m("span", "JEDI"),
+                        m("small", "JEDI"),
                     ]),
                 ]),
-                m("a.text-center.col-xs-12", {href: "https://docs.google.com/forms/d/1v5eekn6bUch71Ct5GZ_1H-Up9p1HssnqPdoDeAGlfCc/viewform?c=0&w=1", target: "_blank"}, "ODDAJ PREDLOG ZA IZBOLJŠAVO"),
                 m("span.about-link.text-center.col-xs-12", {onclick: app.input.vm.goToCredits}, "O APLIKACIJI"),
                 // m("div.col-xs-3.text-center", app.hungerLevel()), 
                 // m("div.col-xs-3.text-center", app.vv()), 
@@ -258,6 +257,7 @@ var app =
                 m("ul", [
                     m("li", m("a", {href: "http://moj.skavt.net/ttomsic/", target: "_blank"}, "Tomi Tomšič")),
                 ]),
+                m("a.text-center.small.col-xs-6", {href: "https://docs.google.com/forms/d/1v5eekn6bUch71Ct5GZ_1H-Up9p1HssnqPdoDeAGlfCc/viewform?c=0&w=1", target: "_blank"}, "ODDAJ PREDLOG ZA IZBOLJŠAVO"),
                 // m("a.text-center.col-xs-12", {href: "/#/"}, "NAZAJ")
             ]);
         },
