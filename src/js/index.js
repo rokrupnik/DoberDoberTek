@@ -236,28 +236,28 @@ var app =
 
         view: function() {
             return m("div.about-container.row", [
-                m("h2", "O aplikaciji"),
+                m("h5", "O APLIKACIJI"),
                 m("p", "Aplikacija je bila razvita s strani skavtskih voditeljev, ki delujejo v Združenju slovenskih katoliških skavtinj in skavtov. Aplikacija je rezultat projekta 'Zdrava prehrana na skavtskih aktivnostih', ki deluje v okviru projekta 'Za zdravje mladih'."),
-                m("h2", "Člani projekta 'Zdrava prehrana na skavtskih aktivnostih':"),
+                m("h5", "ČLANI PROJEKTA"),
                 m("ul", [
                     m("li", m("a", {href: "mailto:brezovniks@gmail.com"}, "Simon Brezovnik")),
                     m("li", m("a", {href: "mailto:jagodic.ana153@gmail.com"}, "Ana Jagodic")),
                     m("li", m("a", {href: "mailto:eva.lovsin10@gmail.com"}, "Eva Lovšin")),
                     m("li", m("a", {href: "mailto:sara.marinko@gmail.com"}, "Sara Marinko")),
                 ]),
-                m("h2", "Programer:"),
+                m("h5", "PROGRAMER:"),
                 m("ul", [
                     m("li", m("a", {href: "http://rokrupnik.github.io/", target: "_blank"}, "Rok Rupnik")),
                 ]),
-                m("h2", "Oblikovalec:"),
+                m("h5", "OBLIKOVALEC:"),
                 m("ul", [
                     m("li", m("a", {href: "http://www.viki.si/", target: "_blank"}, "Viktor Höchtl")),
                 ]),
-                m("h2", "Avtor faktorjev za preračunavanje:"),
+                m("h5", "AVTOR FAKTORJEV ZA PRERAČUNAVANJE:"),
                 m("ul", [
                     m("li", m("a", {href: "http://moj.skavt.net/ttomsic/", target: "_blank"}, "Tomi Tomšič")),
                 ]),
-                m("a.text-center.small.col-xs-6", {href: "https://docs.google.com/forms/d/1v5eekn6bUch71Ct5GZ_1H-Up9p1HssnqPdoDeAGlfCc/viewform?c=0&w=1", target: "_blank"}, "ODDAJ PREDLOG ZA IZBOLJŠAVO"),
+                m("a.text-center", {href: "https://docs.google.com/forms/d/1v5eekn6bUch71Ct5GZ_1H-Up9p1HssnqPdoDeAGlfCc/viewform?c=0&w=1", target: "_blank"}, "ODDAJ PREDLOG ZA IZBOLJŠAVO"),
                 // m("a.text-center.col-xs-12", {href: "/#/"}, "NAZAJ")
             ]);
         },

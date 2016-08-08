@@ -82,13 +82,17 @@ footer img {
 }
 
 .search-container, .list-container {
-    width: 90vw;
-    margin-left: 5vw;
+    width: 90%;
+    margin-left: 5%;
+}
+
+input[type=text] {
+    margin-bottom: 5%;
 }
 
 .about-container {
-    width: 90vw;
-    margin-left: 0.1vw;
+    width: 90%;
+    margin-left: 0.1%;
 }
 
 .transparent {
@@ -99,20 +103,9 @@ footer img {
     padding: 0 !important;
 }
 
-$big-font-size: 4vw;
-$medium-font-size: 3.5vw;
-$small-font-size: 3vw;
-
 /* HOME PAGE */
 .input-container {
     /*margin-top: 30%;*/
-}
-.input-group {
-    margin-bottom: 5vw;
-}
-
-.btn {
-    margin-bottom: 5vw;
 }
 
 h4 {
