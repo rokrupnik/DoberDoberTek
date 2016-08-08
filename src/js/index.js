@@ -71,15 +71,27 @@ var app =
                     m("div.padless.col-xs-12", [
                         m("span.padless.col-xs-4", [
                             m("input#malo", {type: "radio", name: "hungerLevel", onchange: m.withAttr("value", app.hungerLevel), value: "malo", checked: app.hungerLevel() === "malo"}, m("small", "Skoraj siti")),
-                            m("label.malo.text-center", {for: "malo"}, m("small", "Skoraj siti")),
+                            m("label.malo.text-center", {for: "malo"}, [
+                                m("img", {src: "img/malo.png"}),
+                                m("br"),
+                                m("small", "Skoraj siti"),
+                            ]),
                         ]),
                         m("span.padless.col-xs-4", [
                             m("input#srednje", {type: "radio", name: "hungerLevel", onchange: m.withAttr("value", app.hungerLevel), value: "srednje", checked: app.hungerLevel() === "srednje"}, m("small", "Nič posebnega")),
-                            m("label.srednje.text-center", {for: "srednje"}, m("small", "Nič posebnega")),
+                            m("label.srednje.text-center", {for: "srednje"}, [
+                                m("img", {src: "img/srednje.png"}),
+                                m("br"),
+                                m("small", "Nič posebnega"),
+                            ]),
                         ]),
                         m("span.padless.col-xs-4", [
                             m("input#zelo", {type: "radio", name: "hungerLevel", onchange: m.withAttr("value", app.hungerLevel), value: "zelo", checked: app.hungerLevel() === "zelo"}, m("small", "Za vola pojest!")),
-                            m("label.zelo.text-center", {for: "zelo"}, m("small", "Za vola pojest!"))
+                            m("label.zelo.text-center", {for: "zelo"}, [
+                                m("img", {src: "img/zelo.png"}),
+                                m("br"),
+                                m("small", "Za vola pojest!"),
+                            ]),
                         ]),
                     ]),
                 ]),
@@ -99,8 +111,16 @@ var app =
                     ]),
                 ]),
                 m("div.col-xs-12", [
-                    m("span#ingredients.link.text-center.col-xs-4 col-xs-offset-1", {onclick: m.withAttr("value", app.utils.changeRoute), value: "/zivila"}, "ŽIVILA"),
-                    m("span#dishes.link.text-center.col-xs-4 col-xs-offset-2", {onclick: m.withAttr("value", app.utils.changeRoute), value: "/jedi"}, "JEDI")
+                    m("span#ingredients.link.text-center.col-xs-4 col-xs-offset-1", {onclick: m.withAttr("value", app.utils.changeRoute), value: "/zivila"}, [
+                        m("img", {src: "img/ingredients.png"}),
+                        m("br"),
+                        m("span", "ŽIVILA"),
+                    ]),
+                    m("span#dishes.link.text-center.col-xs-4 col-xs-offset-2", {onclick: m.withAttr("value", app.utils.changeRoute), value: "/jedi"}, [
+                        m("img", {src: "img/dishes.png"}),
+                        m("br"),
+                        m("span", "JEDI"),
+                    ]),
                 ]),
                 m("a.text-center.col-xs-12", {href: "https://docs.google.com/forms/d/1v5eekn6bUch71Ct5GZ_1H-Up9p1HssnqPdoDeAGlfCc/viewform?c=0&w=1", target: "_blank"}, "ODDAJ PREDLOG ZA IZBOLJŠAVO"),
                 m("span.about-link.text-center.col-xs-12", {onclick: app.input.vm.goToCredits}, "O APLIKACIJI"),

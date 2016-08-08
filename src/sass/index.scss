@@ -162,24 +162,10 @@ input[type=radio   ]:not(old){
 }
 
 input[type=radio   ]:not(old) + label{
-    padding-right: 0px !important;
-    padding-left: 0px !important;
-
-    padding-top: calc(33vw * 0.69);
-    height: calc((33vw * 0.69) + 1em);
     width: 100%;
     
-    &.malo {
-        background: url("../img/malo.png") no-repeat center 0;
-        background-size: 50%;
-    }
-    &.srednje {
-        background: url("../img/srednje.png") no-repeat center 0;
-        background-size: 50%;
-    }
-    &.zelo {
-        background: url("../img/zelo.png") no-repeat center 0;
-        background-size: 50%;
+    img {
+        width: 50%;
     }
 
     small {
@@ -204,17 +190,10 @@ input[type=number] {
 }
 
 span.link {
-    padding-top: 25vw;
-    height: calc(25vw + 5vw);
     font-size: $small-font-size;
 
-    &#ingredients {
-        background: url("../img/ingredients.png") no-repeat center 0;
-        background-size: 80%;
-    }
-    &#dishes {
-        background: url("../img/dishes.png") no-repeat center 0;
-        background-size: 80%;
+    img {
+        width: 80%;
     }
 }
 
