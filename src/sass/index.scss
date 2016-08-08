@@ -33,7 +33,6 @@ body {
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
 
     padding: 0;
-    text-transform: uppercase;
     width: 100%;
     height: 100%;
 }
@@ -80,8 +79,8 @@ h1 {
 
 /* CUSTOM */
 .container {
-    padding-top: 5vw;
-    padding-bottom: 3vw;
+    padding-top: 5%;
+    padding-bottom: 5%;
 }
 
 header img {
@@ -100,6 +99,10 @@ footer img {
 .about-container {
     width: 90vw;
     margin-left: 0.1vw;
+}
+
+.transparent {
+    opacity: 0;
 }
 
 .padless {

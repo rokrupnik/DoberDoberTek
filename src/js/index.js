@@ -272,3 +272,12 @@ var app =
 
 // "main()"
 app.initialize();
+
+// CSS hacks
+$(document).ready(function () {
+    var wh = $("body").height();
+    var hh = $("header").height();
+    var fh = $("footer").height();
+    $("#main").css("min-height", (wh - hh - fh) + "px");
+    $("body").removeClass("transparent");
+});
