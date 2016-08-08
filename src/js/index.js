@@ -186,6 +186,10 @@ var app =
                     return ingredient;
                 });
                 m.redraw();
+            },
+
+            toggleDishIngredients: function (e) {
+                $(e.target).next().toggleClass("hidden");
             }
         },
 
@@ -205,17 +209,19 @@ var app =
                         // Display dish if at least one ingredient is visible
                         return _.some(dishIngredients, 'visible');
                     }).map(function (dishIngredients) {
-                        return m("div.list-item.thumbnail.col-xs-12", 
-                            [m("strong.col-xs-12", dishIngredients[0].dish),]
-                            .concat(dishIngredients.map(function (ingredient) {
+                        return m("div.list-item.thumbnail.col-xs-12", [
+                            m("strong.dish-title.col-xs-12", {onclick: app.dishes.vm.toggleDishIngredients}, dishIngredients[0].dish),
+                            m("div.hidden", dishIngredients.map(function (ingredient) {
                                 return m("div.col-xs-12", [
                                     m("hr.dish-ingredient"),
                                     m("div.col-xs-6", ingredient.title),
                                     m("div.col-xs-3", app.utils.calculateQuantity(ingredient)),
                                     m("div.col-xs-3.text-center", ingredient.unit),
                                 ]);
-                            })));
-                })),
+                            }))
+                        ]);
+                    })
+                ),
                 // m("button.btn.btn-primary.col-xs-4 col-xs-offset-4", {onclick: m.withAttr("value", app.utils.changeRoute), value: "/"}, "NAZAJ")
             ]);
         },
@@ -295,7 +301,7 @@ app.initialize();
 
 // CSS hacks
 $(document).ready(function () {
-    var setContentHeight + function () {
+    var setContentHeight = function () {
         var wh = $("body").height();
         var hh = $("header").height();
         var fh = $("footer").height();
