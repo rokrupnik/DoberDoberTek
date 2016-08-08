@@ -150,8 +150,12 @@ input[type=radio   ]:not(old) + label{
 }
 
 input[type=radio]:not(old):checked + label{
+    background-color: rgba(7, 55, 94, 0.7);
+    border-radius: 6px;
+
     small {
         font-weight: bold;
+        color: white;
     }
 }
 
@@ -166,16 +170,12 @@ input[type=number] {
 }
 
 span.link {
-    //font-size: $small-font-size;
+    color: #337ab7;
+    text-decoration: none;
 
     img {
         width: 80%;
     }
-}
-
-span.about-link {
-    color: #337ab7;
-    text-decoration: none;
 }
 
 /* LIST */

@@ -122,7 +122,7 @@ var app =
                         m("small", "JEDI"),
                     ]),
                 ]),
-                m("span.about-link.text-center.col-xs-12", {onclick: app.input.vm.goToCredits}, "O APLIKACIJI"),
+                m("span.link.text-center.col-xs-12", {onclick: app.input.vm.goToCredits}, "O APLIKACIJI"),
                 // m("div.col-xs-3.text-center", app.hungerLevel()), 
                 // m("div.col-xs-3.text-center", app.vv()), 
                 // m("div.col-xs-3.text-center", app.iv()), 
